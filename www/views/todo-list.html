@@ -1,0 +1,9 @@
+<div ng-controller="TodoListController">
+  <md-content class="md-padding">
+    <md-card ng-repeat="todo in todos">
+      <md-card-content>
+        {{ todo.description }}
+      </md-card-content>
+    </md-card>
+  </md-content>
+</div>

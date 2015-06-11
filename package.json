@@ -1,0 +1,19 @@
+{
+  "name": "todo-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^5.5.6",
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "browserify-global-shim": "^1.0.0",
+    "browserify-middleware": "^5.0.2",
+    "express": "^4.12.4"
+  }
+}
