@@ -1,10 +1,12 @@
-require( 'babelify/polyfill' );
-
+import 'babelify/polyfill';
 import angular from 'angular';
 
 var app = angular.module( 'TodoSample', [ 'ngMaterial' ] );
 
-app.controller( 'TodoListController', require( './controllers/TodoListController' ) );
-app.factory( 'models/Todo', require( './models/Todo' ) );
+import TodoListController from './controllers/TodoListController';
+import Todo from './models/Todo';
+
+app.controller( 'TodoListController', TodoListController );
+app.factory( 'models/Todo', Todo );
 
 console.log( 'hello world' );
