@@ -32,5 +32,18 @@ export default [ '$http', function( $http ) {
       var rsp = await $http.get( '/api/todos' );
       return rsp.data.map( x => new Todo( x ) );
     }
+
+    static saveData(todos) {
+      $http({
+        url: '/api/todos/saveData',
+        method: "POST",
+        data: todos,
+        headers: {'Content-Type': 'application/json'}
+      }).
+        success(function(data, status, headers, config) {
+        }).
+        error(function(data, status, headers, config) {
+        });
+    }
   };
 }];

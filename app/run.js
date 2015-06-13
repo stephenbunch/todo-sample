@@ -3,10 +3,13 @@ import browserify from 'browserify-middleware';
 import path from 'path';
 import shim from 'browserify-global-shim';
 import babelify from 'babelify';
+import bodyParser from 'body-parser';
 
 global.PROJECT_DIR = path.resolve( __dirname, '../' );
 
 var app = express();
+
+app.use(bodyParser.json());
 
 app.get(
   '/app.js',
