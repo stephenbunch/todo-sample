@@ -6,11 +6,7 @@ var controller = new Router();
 controller.path = '/api/todos';
 
 controller.get( '/', function( req, res ) {
-  fs.readFile(`${ PROJECT_DIR }/data/todos.json`, 'utf8', function(err, data) {
-    if(err) throw err;
-
-    res.send(data);
-  });
+  res.sendFile( `${ PROJECT_DIR }/data/todos.json` );
 });
 
 controller.post( '/saveData', function( req, res ) {
