@@ -21,11 +21,11 @@ export default [ '$http', function( $http ) {
     }
 
     get completed() {
-      return this.completed;
+      return this.data.completed;
     }
 
     set completed( value ) {
-      this.completed = value;
+      this.data.completed = value;
     }
 
     static async findAllAsync() {
