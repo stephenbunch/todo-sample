@@ -6,10 +6,11 @@ var controller = new Router();
 controller.path = '/api/todos';
 
 controller.get( '/', function( req, res ) {
-  console.log("get");
-  var todos = fs.readFileSync(`${ PROJECT_DIR }/data/todos.json`, 'utf8');
-  console.log(todos);
-  res.send( todos );
+  fs.readFile(`${ PROJECT_DIR }/data/todos.json`, 'utf8', function(err, data) {
+    if(err) throw err;
+
+    res.send(data);
+  });
 });
 
 controller.post( '/saveData', function( req, res ) {
@@ -18,17 +19,13 @@ controller.post( '/saveData', function( req, res ) {
     data.push(req.body[i].data);
   }
 
-  console.log(data);
-
   fs.writeFile(`${ PROJECT_DIR }/data/todos.json`, JSON.stringify(data), function(err) {
     if(err) {
       console.log(err);
     }
   });
 
-  var todos = fs.readFileSync(`${ PROJECT_DIR }/data/todos.json`, 'utf8');
-  console.log(todos);
-  res.send( todos );
+  res.send('OK');
 });
 
 export default controller;
